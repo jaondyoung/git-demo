@@ -9,6 +9,7 @@ public class HelloController {
     @GetMapping("hello")
     public String hello(){
         System.out.println("创建分支");
+        System.out.println("主干提交");
         return "hello git";
     }
 }
