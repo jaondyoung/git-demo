@@ -12,6 +12,7 @@ public class HelloController {
         System.out.println("主干提交");
         System.out.println("分支提交");
         System.out.println("仓库更新");
+        System.out.println("仓库更新本地提交");
         return "hello git";
     }
 }
