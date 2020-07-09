@@ -10,6 +10,7 @@ public class HelloController {
     public String hello(){
         System.out.println("创建分支");
         System.out.println("主干提交");
+        System.out.println("分支提交");
         return "hello git";
     }
 }
