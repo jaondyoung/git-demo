@@ -8,10 +8,11 @@ public class SpinDemo {
 
     public void mylock(){
         Thread thread = Thread.currentThread();
-        System.out.println(Thread.currentThread().getName() + " 获得锁");
+        System.out.println(Thread.currentThread().getName() + " come in");
         while(!atomicReference.compareAndSet(null,thread)){
-
+                // B线程就一直循环，判断当前是否为null
         }
+        System.out.println(Thread.currentThread().getName() +  "获取锁");
     }
 
     public void myunLock(){
@@ -57,6 +58,21 @@ public class SpinDemo {
 
 
         },"bb").start();
+
+        new Thread(()->{
+            spinDemo.mylock();
+
+
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                spinDemo.myunLock();
+            }
+
+
+        },"cc").start();
 
     }
 }
