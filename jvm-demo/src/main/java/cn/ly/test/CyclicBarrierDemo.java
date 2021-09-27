@@ -1,4 +1,4 @@
-package cn.ly.problem;
+package cn.ly.test;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

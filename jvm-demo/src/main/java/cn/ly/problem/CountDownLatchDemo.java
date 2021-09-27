@@ -15,8 +15,19 @@ public class CountDownLatchDemo {
             },String.valueOf(i+1)).start();
         }
 
-        countDownLatch.await(); // 当指定数量的线程完成任务时，再执行某个线程时适用
-        System.out.println(Thread.currentThread().getName() + "\t 班长锁门");
+        new Thread(()->{
+
+            try {
+                countDownLatch.await(); // 当指定数量的线程完成任务时，再执行某个线程时适用
+                System.out.println(Thread.currentThread().getName() + "\t 班长锁门");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        },"7").start();
+
+//        countDownLatch.await(); // 当指定数量的线程完成任务时，再执行某个线程时适用
+//        System.out.println(Thread.currentThread().getName() + "\t 班长锁门");
 
     }
 }
